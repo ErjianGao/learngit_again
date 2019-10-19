@@ -13,6 +13,12 @@ git status:check the status of the present repository
 git checkout -- file:discard all the change of the files in the workplace, which means the file will return to the last "git commit(or add)" status
 git remote add origin git@github.com:username/[remote repository name].git:associate a existing repository with the remote repository, and the name of the remote repository is "origin", and this is the git default name
 git push -u origin master:push the current branch master to the remote, and the -u ref means that git will not only push the master branch to the new master branch but also associate the local master branch with the local master branch, which means it will simplify the command when pull and push content
+git remote:check the info of the remote repo
+git remote -v:show more detail, showing the addresses which allow to fetch and push
+git clone git 
+git push origin master:push the branch. Appoint the local branch when pushing.
+
+
 
 
 why the Github need the SSH Key? Because GitHub needs to recognize the commit you pushed is exactly you pushed, and not a fake, and Git support the SSH protocal.So if Github knows your public key, it can confirm that only you can push the commit.
