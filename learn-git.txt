@@ -1,2 +1,20 @@
-git reflog:记录每一次命令
+git reflog:record every commit id
+git diff [filename]:show the changee of the file
+git diff HEAD -- [filename]:show the difference between the current file and the latest file in the repository 
+git reflog:record every commond
+git reset --hard [commit id]:recover the old version, furthermore, the HEAD^ means the last version, and the HEAD means the current version
+git reset HEAD [filename]:get the change in stage back to the workplace
+cat file:show the content of file
+git log: show the history of the commit of version repository
+git init:initialize empty Git repository
+git add [filename]:add the file to the stage
+git commit -m [comments]:add the files in stoge to the repository
+git status:check the status of the present repository
+git checkout -- file:discard all the change of the files in the workplace, which means the file will return to the last "git commit(or add)" status
+git remote add origin git@github.com:username/[remote repository name].git:associate a existing repository with the remote repository, and the name of the remote repository is "origin", and this is the git default name
+git push -u origin master:push the current branch master to the remote, and the -u ref means that git will not only push the master branch to the new master branch but also associate the local master branch with the local master branch, which means it will simplify the command when pull and push content
+
+
+why the Github need the SSH Key? Because GitHub needs to recognize the commit you pushed is exactly you pushed, and not a fake, and Git support the SSH protocal.So if Github knows your public key, it can confirm that only you can push the commit.
+
 
