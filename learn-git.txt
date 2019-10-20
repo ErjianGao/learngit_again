@@ -46,7 +46,6 @@ Github:
 In the GitHub, you can fork any open source repo, which means clone the repo to your own remote account, and then you can clone the repo from the remote account to your local repo. If you want to fix a bug or add a new feature, you can fix it locally, and then push to your remote repo. If you want the repo you forked accept your modification. You can submit a "pull request", but the other side might not accept your request. Remember, don't directly clone the open source repo to local repo, fix it and push to the remote, because you don't have the authority to modify other people's repo. 
 
 
-
 why the Github need the SSH Key? Because GitHub needs to recognize the commit you pushed is exactly you pushed, and not a fake, and Git support the SSH protocal.So if Github knows your public key, it can confirm that only you can push the commit.
 
 
@@ -57,6 +56,7 @@ problem:
 	git remote add origin git@github.com:ErjianGao/learngit_again.git
 4.But when the local repo want to synchronize the remote repo to local repo, and prepare for pushing the local repo to the remote, the git report an error
 	fatal: refusing to merge unrelated histories
+
 solution:
 The reason why this happen is that the local repo and the remote repo are actually two repos. If I directly clone the remote to the local, there won't be any questions. 
 And by looking for the Internet, it can be solved by using option "--allow-unrelated-history"(this option can merge two repos which were independently started)
