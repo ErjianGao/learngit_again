@@ -120,4 +120,4 @@ And the next is to push the local commit to the remote github repo, using the fo
 ### pull
 git pull command is basically the combination of `git fetch` and `git merge` command, Git fetch content from the appointed repos, and immidiately try to merge to your branch, which makes it an easier and more comfortable work flow.
 
-[The solution of this question mainly refers the blog from this website](https://blog.csdn.net/w88193363/article/details/80593429)
+[The solution of this question mainly refers the blog from this website](https://blog.csdn.net/u012145252/article/details/80628451)
