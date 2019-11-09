@@ -1,2 +1,78 @@
-# Notification:
-This part is not ready yet. If you are familiar with markdown, you can help me  edit this part according to the file "learn-git.txt" in the folder, thank you~:satisfied:
+<!-- # Notification**:
+This part is not ready yet. If you are familiar with markdown, you can help me  edit this part according to the file "learn-git.txt" in the folder, thank you~**:satisfied**: -->
+
+
+### git command:
+**git config --global user.email "you@example.com"**:set the git user email
+**git config --global user.name "Your name"**:set the git user name
+**git reflog**:record every commit id
+**git diff [filename]**:show the changee of the file
+**git diff HEAD -- [filename]**:show the difference between the current file and the latest file in the repository 
+**git reflog**:record every commond
+**git reset --hard [commit id]**:recover the old version, furthermore, the HEAD^ means the last version, and the HEAD means the current version
+**git reset HEAD [filename]**:get the change in stage back to the workplace
+**cat file**:show the content of file
+**git log**: show the history of the commit of version repository
+**git init**:initialize empty Git repository
+**git add [filename]**:add the file to the stage
+**git commit -m [comments]**:add the files in stoge to the repository
+**git status**:check the status of the present repository
+**git checkout -- file**:discard all the change of the files in the workplace, which means the file will return to the last "git commit(or add)" status
+**git remote add origin git@github.com:[username]/[remote repository name].git**:associate a existing repository with the remote repository, and the name of the remote repository is "origin", and this is the git default name
+**git push -u origin master**:push the current branch master to the remote, and the -u ref means that git will not only push the master branch to the new master branch but also associate the local master branch with the local master branch, which means it will simplify the command when pull and push content
+**git remote**:check the info of the remote repo
+**git remote -v**:show more detail, showing the addresses which allow to fetch and push
+**git clone git@github.com:[username]/[remote repo name]**:the remote repo is prepared and the next setp is to clone a local repo
+**git push origin master**:push the branch. Appoint the local branch when pushing.
+**git checkout dev**:swich to an appointed branch
+**git checkout -b dev**:the command "git checkout" added ref "-b" means create and switch, which means two commands.
+&emsp;&emsp;**git branch dev**
+&emsp;&emsp;**git checkout dev**  
+**git branch**:check current branch
+**git merge dev**:merge appointed branch to current branch.
+**git merge --no-ff -m " "**:pay attention to the ref "--no-ff", which means ban "Fast forward", git will create a new commit when merging the branch
+**git branch -d dev**:delete the appointed branch after the merge
+**git branch -D [branch name]**:If you want to delete a branch without merging, you can use "-D" to delete branch with force
+**git log --graph --pretty=oneline --abbrev-commit**:show the branch merge graph,"--pretty=oneline" means that the log only shows one line info, "abbrev-commit" means it shows only the first characters of SHA.
+**git stash**:you can store the current work place and continue to work after the work place being recovered
+**git stash list**:show saved work place
+**git stash pop stash@{[stash id]}**:recover the work place and delete the stash
+**git cherry-pick [commit]**:If you want to merge the fixed bug in the master branch to the current dev branch, you can use "**git cherry-pick**". Copy the bug fixed changes to the current branch to avoid repeated work. 
+**git tag [tag name]**:The default label is put on the latest commit
+**git tag [tag name] [commit if]**:put the label accourding to the commit id
+**git tag**:show all the tag
+**git show [tag name]**:show the tag info
+**git tag -d [tag name]**:delete tag
+**git push orgin [tag name]**:push a local tag
+**git push orgin --tags**:push all the local tags
+**git push origin:refs/tags/[tag name]**:delete a remote tag
+
+
+### Github:
+In the GitHub, you can fork any open source repo, which means clone the repo to your own remote account, and then you can clone the repo from the remote account to your local repo. If you want to fix a bug or add a new feature, you can fix it locally, and then push to your remote repo. If you want the repo you forked accept your modification. You can submit a "pull request", but the other side might not accept your request. Remember, don't directly clone the open source repo to local repo, fix it and push to the remote, because you don't have the authority to modify other people's repo. 
+
+
+why the Github need the SSH Key? Because GitHub needs to recognize the commit you pushed is exactly you pushed, and not a fake, and Git support the SSH protocal.So if Github knows your public key, it can confirm that only you can push the commit.
+
+
+### problem:
+1.I initialized a git repository locally, putting some files in it and did some add and commit operations. 
+2.Then I created a remote repository and a README file in the github. 
+3.I add the git repository as remote repository in local repository, named "origin"
+	&emsp;&emsp;**git remote add origin git@github.com**:ErjianGao/learngit_again.git
+4.But when the local repo want to synchronize the remote repo to local repo, and prepare for pushing the local repo to the remote, the git report an error
+	&emsp;&emsp;fatal: refusing to merge unrelated histories
+
+### solution:
+The reason why this happen is that the local repo and the remote repo are actually two repos. If I directly clone the remote to the local, there won't be any questions. 
+And by looking for the Internet, it can be solved by using option "--allow-unrelated-history"(this option can merge two repos which were independently started)
+	&emsp;&emsp;**git pull origin master --allow-unrelated-histories**
+The above is to pull the files from the remote repo to the local repo
+And the next is to push the local commit to the remote github repo, using the following command.
+	&emsp;&emsp;**git push [remote host name] [local branch name]**:[remote branch name]
+
+
+### pull
+git pull command is basically the conbination of "git fetch" and "git fetch" command, Git fetch content from the appointed repos, and immidiately try to merge to your branch, which makes it an easier and more comfortable work flow.
+
+[The solution of this question mainly refers the blog from this website](https**://blog.csdn.net/w88193363/article/details/80593429)

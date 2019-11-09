@@ -1,4 +1,6 @@
 git command:
+git config --global user.email "you@example.com":set the git user email
+git config --global user.name "Your name":set the git user name
 git reflog:record every commit id
 git diff [filename]:show the changee of the file
 git diff HEAD -- [filename]:show the difference between the current file and the latest file in the repository 
